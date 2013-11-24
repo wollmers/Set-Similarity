@@ -18,8 +18,6 @@ my $builder = Module::Build->new(
     'Module::Build' => 0.38,
   },
 
-  share_dir => 'lib/TimeRec/files',
-
   meta_merge => {
     resources  => {
       repository => "http://github.com/wollmers/Set-Similarity",

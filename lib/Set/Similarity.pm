@@ -9,7 +9,6 @@ sub new {
   bless @_ ? @_ > 1 ? {@_} : {%{$_[0]}} : {}, ref $class || $class;
 }
 
-
 sub from_strings {
   my $self = shift;
   my $string1 = shift;
@@ -41,9 +40,10 @@ sub ngrams {
     my $ngram = substr $word,$i,$width;
     push @ngrams,$ngram;
   }
- 
+
   return @ngrams;
 }
+
 
 1;
 

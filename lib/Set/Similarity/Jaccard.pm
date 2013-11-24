@@ -20,7 +20,6 @@ sub from_tokens {
   my $intersection = grep exists $unique1{$_}, keys %unique2;
   my $union = scalar(keys %unique1) + scalar(keys %unique2) - $intersection;
   # ( A intersect B ) / (A union B)
-  
   my $jaccard = ($intersection / $union);
   return $jaccard;
 }
