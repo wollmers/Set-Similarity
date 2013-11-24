@@ -22,7 +22,6 @@ sub from_tokens {
   # ( A intersect B ) / (A union B)
   
   my $jaccard = ($intersection / $union);
-  print '$jaccard: ',$jaccard,"\n" if $self->debug;
   return $jaccard;
 }
 

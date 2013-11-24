@@ -16,8 +16,6 @@ use_ok($class);
 
 my $object = new_ok($class);
 
-$object->debug(0);
-
 is($object->from_tokens([],['a','b']),0,'empty, ab tokens');
 is($object->from_tokens(['a','b'],[]),0,'ab, empty tokens');
 is($object->from_tokens([],[]),0,'both empty tokens');

@@ -24,7 +24,6 @@ sub from_tokens {
       ? scalar(keys %unique1) : scalar(keys %unique1);
   # ( A intersect B ) / min(A,B)
   my $coefficient = ($intersection / $min);
-  print '$coefficient: ',$coefficient,"\n" if $self->debug;
   return $coefficient;
 }
 

@@ -8,13 +8,7 @@ sub new {
   my $class = shift;
   bless @_ ? @_ > 1 ? {@_} : {%{$_[0]}} : {}, ref $class || $class;
 }
-has 'debug' => 0;
 
-#use Memoize;
-
-#sub accel {
-#  memoize('ngrams',INSTALL => 'fast_ngrams');
-#};
 
 sub from_strings {
   my $self = shift;
@@ -38,7 +32,6 @@ sub ngrams {
   my $width = shift;
 
   $width = 2 unless defined $width;
-  print '$word: ',$word,' $width: ',$width,"\n" if $self->debug;
 
   my @ngrams;
   return @ngrams 

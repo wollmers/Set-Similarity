@@ -15,8 +15,6 @@ use_ok($class);
 
 my $object = new_ok($class);
 
-$object->debug(0);
-
 is_deeply([$object->ngrams('',0)],[],'zerogram empty string is empty');
 is_deeply([$object->ngrams('a',0)],[],'zerogram single character is empty');
 is_deeply([$object->ngrams('ab',0)],[],'zerogram two characters is empty');
