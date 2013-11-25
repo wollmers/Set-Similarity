@@ -50,7 +50,20 @@ sub ngrams {
 
 1;
 
-=comment
+__END__
+
+=head1 NAME
+
+Set::Similarity - similarity measures for sets
+
+=head1 SYNOPSIS
+
+ use Set::Similarity::Dice;
+ my $dice = Set::Similarity::Dice->new;
+ my $similarity = $dice->from_string('Photographer','Fotograf');
+
+=head1 DESCRIPTION
+
 
 Overlap coefficient
 
@@ -72,5 +85,22 @@ The Dice coefficient is the number of features in common to both molecules relat
 
 ( A intersect B ) / 0.5 ( A + B ) # the same as sorensen
 
-The weighting factor comes from the 0.5 in the denominator. The range is 0 to 1.​
+The weighting factor comes from the 0.5 in the denominator. The range is 0 to 1.
+
+​=head1 SOURCE REPOSITORY
+
+L<http://github.com/wollmers/Set-Similarity>
+
+=head1 AUTHOR
+
+Helmut Wollmersdorfer, E<lt>helmut.wollmersdorfer@gmail.comE<gt>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright (C) 2013 by Helmut Wollmersdorfer
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=cut
 

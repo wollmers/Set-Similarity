@@ -1,0 +1,15 @@
+.perlcriticrc
+.travis.yml
+Build.PL
+lib/Set/Similarity.pm
+lib/Set/Similarity/Dice.pm
+lib/Set/Similarity/Jaccard.pm
+lib/Set/Similarity/Overlap.pm
+MANIFEST			This list of files
+README.md
+t/10_similarity.t
+t/10_similarity_dice.t
+t/10_similarity_jaccard.t
+t/10_similarity_overlap.t
+META.yml
+META.json
