@@ -4,6 +4,9 @@ use strict;
 use warnings;
 use utf8;
 
+our $VERSION = 0.001;
+$VERSION = eval $VERSION;
+
 sub new {
   my $class = shift;
   bless @_ ? @_ > 1 ? {@_} : {%{$_[0]}} : {}, ref $class || $class;
