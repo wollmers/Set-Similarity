@@ -5,7 +5,7 @@ use strict;
 use warnings;
 use utf8;
 
-use lib qw(../lib/);
+use lib qw(../lib/ ./lib/);
 
 use Test::More;
 

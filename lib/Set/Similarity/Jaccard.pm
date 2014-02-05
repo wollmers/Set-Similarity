@@ -8,9 +8,13 @@ use parent 'Set::Similarity';
 
 sub from_tokens {
   my $self = shift;
-  my $tokens1 = shift;
-  my $tokens2 = shift;
+  my $tokens1 = shift || [];
+  my $tokens2 = shift || [];
   
+  $tokens1 = ref $tokens1 ? $tokens1 : [$tokens1];
+  $tokens2 = ref $tokens2 ? $tokens2 : [$tokens2];
+  
+  return 1 if (!scalar @$tokens1 && !scalar @$tokens2);
   return 0 unless (scalar @$tokens1 && scalar @$tokens2 );
   
   my %unique1;
