@@ -36,7 +36,7 @@ sub ngrams {
 
   my @ngrams;
   return @ngrams 
-    unless ($width =~ m/^[1-9][0-9]*$/ && $width <= length($word));
+    unless ($width =~ m/^[1-9][0-9]*$/x && $width <= length($word));
 
   for my $i (0..length($word)-$width) {
     my $ngram = substr $word,$i,$width;

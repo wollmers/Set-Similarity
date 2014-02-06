@@ -12,7 +12,6 @@ my $builder = Module::Build->new(
   requires => {
     'perl' => '5.8.0',
     'Test::More' => 0,
-    'Unicode::Normalize' => 0,
   },
   configure_requires => {
     'Module::Build' => 0.38,

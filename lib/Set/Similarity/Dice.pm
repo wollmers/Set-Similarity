@@ -20,7 +20,7 @@ sub from_tokens {
   @unique1{@$tokens1} = ();
   my %unique2;
   @unique2{@$tokens2} = ();
-  my $intersection = grep exists $unique1{$_}, keys %unique2;
+  my $intersection = grep { exists $unique1{$_} } keys %unique2;
   my $combined_length = scalar(keys %unique1) + scalar(keys %unique2);
   my $dice = ($intersection * 2 / $combined_length);
   return $dice;
