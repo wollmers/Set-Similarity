@@ -1,9 +1,9 @@
 #!perl
-use 5.010;
-use open qw(:locale);
+#use 5.010;
+#use open qw(:locale);
 use strict;
 use warnings;
-use utf8;
+#use utf8;
 
 use lib qw(../lib/);
 

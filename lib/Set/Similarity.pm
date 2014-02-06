@@ -2,7 +2,6 @@ package Set::Similarity;
 
 use strict;
 use warnings;
-use utf8;
 
 our $VERSION = 0.001;
 $VERSION = eval $VERSION;

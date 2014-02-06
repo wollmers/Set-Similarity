@@ -1,9 +1,9 @@
 #!perl
-use 5.010;
-use open qw(:locale);
+#use 5.010;
+#use open qw(:locale);
 use strict;
 use warnings;
-use utf8;
+#use utf8;
 
 use lib qw(../lib/);
 
@@ -13,11 +13,17 @@ my $class = 'Set::Similarity::Dice';
 
 use_ok($class);
 
-my $object = new_ok($class);
+#my $object = new_ok($class);
+
+my $object = $class;
+
+is($object->from_tokens(),1,'empty params');
+is($object->from_tokens('a',),0,'a string');
+is($object->from_tokens('a','b'),0,'a,b strings');
 
 is($object->from_tokens([],['a','b']),0,'empty, ab tokens');
 is($object->from_tokens(['a','b'],[]),0,'ab, empty tokens');
-is($object->from_tokens([],[]),0,'both empty tokens');
+is($object->from_tokens([],[]),1,'both empty tokens');
 is($object->from_tokens(['a','b'],['a','b']),1,'equal  ab tokens');
 is($object->from_tokens(['a','b'],['c','d']),0,'ab unequal cd tokens');
 is($object->from_tokens(['a','b','a','a'],['b','c','c','c']),0.5,'abaa 0.5 bccc tokens');
