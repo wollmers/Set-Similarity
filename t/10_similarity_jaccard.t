@@ -29,6 +29,15 @@ is($object->from_tokens(['a','b'],['c','d']),0,'ab unequal cd tokens');
 is($object->from_tokens(['a','b','a','a'],['b','c','c','c','d']),0.25,'abaa 0.25 bcccd tokens');
 is($object->from_tokens(['a','b','a','b'],['b','c','c','c','d']),0.25,'abab 0.25 bccc tokens');
 
+is($object->from_features({},{'a' => 1,'b' => 1}),0,'empty, ab tokens');
+is($object->from_features({'a' => 1,'b' => 1},{}),0,'ab, empty tokens');
+is($object->from_features({},{}),1,'both empty tokens');
+is($object->from_features({'a' => 1,'b' => 1},{'a' => 1,'b' => 1}),1,'equal  ab tokens');
+is($object->from_features({'a' => 1,'b' => 1},{'c' => 1,'d' => 1}),0,'ab unequal cd tokens');
+#is($object->from_features(['a','b','a','a'],['b','c','c','c','d']),0.25,'abaa 0.25 bcccd tokens');
+#is($object->from_features(['a','b','a','b'],['b','c','c','c','d']),0.25,'abab 0.25 bccc tokens');
+
+
 is($object->from_strings('ab','ab'),1,'equal  ab strings');
 is($object->from_strings('ab','cd'),0,'ab unequal cd strings');
 is($object->from_strings('abaa','bcccd'),0.25,'abaa 0.25 bccc strings');

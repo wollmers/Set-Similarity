@@ -27,6 +27,18 @@ sub from_strings {
   );
 }
 
+sub from_features {
+  my $self = shift;
+  my $hash1 = shift;
+  my $hash2 = shift;
+
+  return $self->from_tokens(
+    [ grep { $hash1->{$_} } keys %$hash1],
+    [ grep { $hash2->{$_} } keys %$hash2],
+  );
+}
+
+
 sub ngrams {
   my $self = shift;
   my $word = shift;
