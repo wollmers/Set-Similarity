@@ -108,11 +108,11 @@ Set::Similarity - similarity measures for sets
 =head1 DESCRIPTION
 
 
-Overlap coefficient
+=head2 Overlap coefficient
 
 ( A intersect B ) / min(A,B)
 
-Jaccard Index
+=head2 Jaccard Index
 
 The Jaccard coefficient measures similarity between sample sets, and is defined as the size of the intersection divided by the size of the union of the sample sets
 
@@ -122,7 +122,9 @@ The Tanimoto coefficient is the ratio of the number of features common to both m
 
 ( A intersect B ) / ( A + B - ( A intersect B ) ) # the same as Jaccard 
 
-The range is 0 to 1 inclusive. 
+The range is 0 to 1 inclusive.
+
+=head2 Dice coefficient
 
 The Dice coefficient is the number of features in common to both molecules relative to the average size of the total number of features present, i.e.
 
@@ -130,7 +132,7 @@ The Dice coefficient is the number of features in common to both molecules relat
 
 The weighting factor comes from the 0.5 in the denominator. The range is 0 to 1.
 
-​=head1 SOURCE REPOSITORY
+=head1 SOURCE REPOSITORY
 
 L<http://github.com/wollmers/Set-Similarity>
 
