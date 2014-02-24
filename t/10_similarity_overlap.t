@@ -1,9 +1,6 @@
 #!perl
-#use 5.010;
-#use open qw(:locale);
 use strict;
 use warnings;
-#use utf8;
 
 use lib qw(../lib/);
 
@@ -41,5 +38,10 @@ is($object->from_strings('ab','cd',2),0,'ab unequal cd bigrams');
 is($object->from_strings('abaa','bccc',2),0,'abaa 0 bccc bigrams');
 is($object->from_strings('abcabcf','bcccah',2),0.5,'abcabcf 0.5 bcccah bigrams');
 is($object->from_strings('abc','abcdef',2),1,'abc 1 abcdef bigrams');
+
+ok($object->from_strings('Photographer','Fotograf') > 0.71,'Photographer 0.714 Fotograf strings');
+ok($object->from_strings('Photographer','Fotograf',2) > 0.71,'Photographer 0.714 Fotograf bigrams');
+ok($object->from_strings('Photographer','Fotograf',3) > 0.66,'Photographer 0.666 Fotograf bigrams');
+
 
 done_testing;

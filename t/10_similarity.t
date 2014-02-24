@@ -1,9 +1,6 @@
 #!perl
-#use 5.010;
-#use open qw(:locale);
 use strict;
 use warnings;
-#use utf8;
 
 use lib qw(../lib/ );
 
@@ -20,10 +17,24 @@ is_deeply([$object->ngrams('a',0)],[],'zerogram single character is empty');
 is_deeply([$object->ngrams('ab',0)],[],'zerogram two characters is empty');
 is_deeply([$object->ngrams('a',1)],['a'],'monogram single character');
 is_deeply([$object->ngrams('ab',1)],['a','b'],'monogram two characters');
-is_deeply([$object->ngrams('')],[],'bigram empty string is empty');
-is_deeply([$object->ngrams('a')],[],'bigram single character is empty');
-is_deeply([$object->ngrams('ab')],['ab'],'bigram two characters');
-is_deeply([$object->ngrams('abc')],['ab','bc'],'bigram three characters');
+is_deeply([$object->ngrams('',2)],[],'bigram empty string is empty');
+is_deeply([$object->ngrams('a',2)],[],'bigram single character is empty');
+is_deeply([$object->ngrams('ab',2)],['ab'],'bigram two characters');
+is_deeply([$object->ngrams('abc',2)],['ab','bc'],'bigram three characters');
+
+is_deeply($object->_any('',0),[],'o-gram empty string is empty list');
+is_deeply($object->_any('a',0),[],'o-gram string a is empty list');
+is_deeply($object->_any('ab',0),[],'o-gram string ab is empty list');
+is_deeply($object->_any('a',1),['a'],'1-gram string a');
+is_deeply($object->_any('ab',1),['a','b'],'1-gram ab');
+is_deeply($object->_any('',2),[],'bigram empty string is empty');
+is_deeply($object->_any('a',2),[],'bigram single character is empty');
+is_deeply($object->_any('ab',2),['ab'],'bigram two characters');
+is_deeply($object->_any('abc',2),['ab','bc'],'bigram three characters');
+
+is_deeply($object->_any({}),[],'empty hashref is empty list');
+is_deeply($object->_any({'a' => 1}),['a'],'hash a => 1');
+is_deeply($object->_any({'a'=>1,'b'=>1}),['a','b'],'hash ab');
 
 
 done_testing;

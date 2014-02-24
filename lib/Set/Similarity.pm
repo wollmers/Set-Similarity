@@ -4,47 +4,46 @@ use strict;
 use warnings;
 
 our $VERSION = 0.001;
-$VERSION = eval $VERSION;
 
 sub new {
   my $class = shift;
   bless @_ ? @_ > 1 ? {@_} : {%{$_[0]}} : {}, ref $class || $class;
 }
 
-sub from_strings {
-  my $self = shift;
-  my $string1 = shift;
-  my $string2 = shift;
-  my $width = shift;
-  $width = 1 unless defined $width;
+sub from_any {
+  my ($self, $any1, $any2, $width) = @_;
+
   return $self->from_tokens(
-    [split(//,$string1)],
-    [split(//,$string2)],
-  ) unless ($width > 1);
-  return $self->from_tokens(
-    [$self->ngrams($string1,$width)],
-    [$self->ngrams($string2,$width)],
+    $self->_any($any1,$width),
+    $self->_any($any2,$width)
   );
 }
 
-sub from_features {
-  my $self = shift;
-  my $hash1 = shift;
-  my $hash2 = shift;
-
-  return $self->from_tokens(
-    [ grep { $hash1->{$_} } keys %$hash1],
-    [ grep { $hash2->{$_} } keys %$hash2],
-  );
+sub _any {
+  my ($self, $any, $width) = @_;
+	
+  if (ref($any) eq 'ARRAY') {
+    return $any;
+  }
+  elsif (ref($any) eq 'HASH') {
+	return [grep { $any->{$_} } keys %$any];
+  }
+  elsif (ref($any)) {
+   return [];
+  }
+  else {
+    return [$self->ngrams($any,$width)];
+  }
 }
 
+sub from_strings { shift->from_any(@_) }
+
+sub from_features { shift->from_any(@_) }
 
 sub ngrams {
-  my $self = shift;
-  my $word = shift;
-  my $width = shift;
+  my ($self, $word, $width) = @_;
 
-  $width = 2 unless defined $width;
+  $width = 1 unless defined $width;
 
   my @ngrams;
   return @ngrams 
@@ -77,8 +76,8 @@ sub from_tokens {
 }
 
 
-sub intersection {
-  scalar grep { exists ${$_[1]}{$_} } keys %{$_[2]};
+sub intersection { 
+  scalar grep { exists ${$_[1]}{$_} } keys %{$_[2]}; 
 }
 
 sub combined_length {
@@ -86,8 +85,8 @@ sub combined_length {
 }
 
 sub min {
-    (scalar(keys %{$_[1]}) < scalar(keys %{$_[2]}))
-      ? scalar(keys %{$_[1]}) : scalar(keys %{$_[2]});
+  (scalar(keys %{$_[1]}) < scalar(keys %{$_[2]}))
+    ? scalar(keys %{$_[1]}) : scalar(keys %{$_[2]});
 }
 
 
