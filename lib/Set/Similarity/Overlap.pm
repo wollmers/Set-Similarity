@@ -5,6 +5,8 @@ use warnings;
 
 use parent 'Set::Similarity';
 
+=comment
+
 sub from_sets {
   my ($self, $set1, $set2) = @_;
 
@@ -14,5 +16,6 @@ sub from_sets {
   );
 }
 
+=cut
 
 1;

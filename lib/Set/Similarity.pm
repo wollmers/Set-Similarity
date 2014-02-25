@@ -7,10 +7,11 @@ our $VERSION = 0.001;
 
 sub new {
   my $class = shift;
+  # uncoverable condition false
   bless @_ ? @_ > 1 ? {@_} : {%{$_[0]}} : {}, ref $class || $class;
 }
 
-sub from_any {
+sub similarity {
   my ($self, $any1, $any2, $width) = @_;
 
   return $self->from_tokens(
@@ -36,14 +37,17 @@ sub _any {
   }
 }
 
-sub from_strings { shift->from_any(@_) }
+##sub similarity { shift->from_any(@_) }
 
-sub from_features { shift->from_any(@_) }
+#sub from_strings { shift->from_any(@_) }
+
+#sub from_features { shift->from_any(@_) }
 
 sub ngrams {
   my ($self, $word, $width) = @_;
 
   $width = 1 unless defined $width;
+  $word ||= '';
 
   my @ngrams;
   return @ngrams 
@@ -65,6 +69,7 @@ sub from_tokens {
   $tokens1 = ref $tokens1 ? $tokens1 : [$tokens1];
   $tokens2 = ref $tokens2 ? $tokens2 : [$tokens2];
   
+  # uncoverable condition false
   return 1 if (!scalar @$tokens1 && !scalar @$tokens2);
   return 0 unless (scalar @$tokens1 && scalar @$tokens2 );
   
@@ -73,6 +78,16 @@ sub from_tokens {
   my %unique2;
   @unique2{@$tokens2} = ();
   return $self->from_sets(\%unique1,\%unique2);
+}
+
+# overlap is default
+sub from_sets {
+  my ($self, $set1, $set2) = @_;
+
+  # ( A intersect B ) / min(A,B)  
+  return (
+    $self->intersection($set1,$set2) / $self->min($set1,$set2)
+  );
 }
 
 
@@ -130,6 +145,43 @@ The Dice coefficient is the number of features in common to both molecules relat
 ( A intersect B ) / 0.5 ( A + B ) # the same as sorensen
 
 The weighting factor comes from the 0.5 in the denominator. The range is 0 to 1.
+
+=head1 METHODS
+
+
+=head2 new
+
+  $object = Set::Similarity->new();
+
+=head2 similarity
+
+  my $similarity = $object->similarity('a','b');
+  
+=head2 from_tokens
+
+  my $similarity = $object->from_tokens(['a'],['b']);
+
+=head2 from_sets
+
+  my $similarity = $object->from_sets({'a' => undef},{'b' => undef});
+
+=head2 intersection
+
+  my $similarity = $object->from_tokens(['a'],['b']);
+  
+=head2 combined_length
+
+  my $similarity = $object->from_tokens(['a'],['b']);
+
+=head2 min
+
+  my $similarity = $object->from_tokens(['a'],['b']);
+  
+=head2 ngrams
+
+  my $similarity = $object->from_tokens(['a'],['b']);
+
+
 
 =head1 SOURCE REPOSITORY
 
