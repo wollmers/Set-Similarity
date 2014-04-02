@@ -4,7 +4,7 @@
       "Helmut Wollmersdorfer"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "Module::Build version 0.4007, CPAN::Meta::Converter version 2.132830",
+   "generated_by" : "Module::Build version 0.4203",
    "license" : [
       "perl_5"
    ],
@@ -27,7 +27,6 @@
       "runtime" : {
          "requires" : {
             "Test::More" : "0",
-            "Unicode::Normalize" : "0",
             "perl" : "v5.8.0"
          }
       }

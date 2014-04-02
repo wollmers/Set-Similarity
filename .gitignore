@@ -7,6 +7,7 @@ Build
 !Build/
 Build.bat
 .last_cover_stats
+.DS_Store
 Makefile
 Makefile.old
 MANIFEST.bak
@@ -15,6 +16,8 @@ MYMETA.yml
 nytprof.out
 nytprof/
 pm_to_blib
+
+*.tar.gz
 
 *~
 *.bak

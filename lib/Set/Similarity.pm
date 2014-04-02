@@ -37,12 +37,6 @@ sub _any {
   }
 }
 
-##sub similarity { shift->from_any(@_) }
-
-#sub from_strings { shift->from_any(@_) }
-
-#sub from_features { shift->from_any(@_) }
-
 sub ngrams {
   my ($self, $word, $width) = @_;
 
@@ -116,8 +110,28 @@ Set::Similarity - similarity measures for sets
 =head1 SYNOPSIS
 
  use Set::Similarity::Dice;
+ 
+ # object method
  my $dice = Set::Similarity::Dice->new;
- my $similarity = $dice->from_string('Photographer','Fotograf');
+ my $similarity = $dice->similarity('Photographer','Fotograf');
+ 
+ # class method
+ my $dice = 'Set::Similarity::Dice';
+ my $similarity = $dice->similarity('Photographer','Fotograf');
+ 
+ # from 2-grams
+ my $width = 2;
+ my $similarity = $dice->similarity('Photographer','Fotograf',$width);
+ 
+ # from arrayref of tokens
+ my $similarity = $dice->similarity(['a','b'],['b']);
+ 
+ # from hashref of features
+ 
+ # from hashref sets
+ 
+
+ 
 
 =head1 DESCRIPTION
 
@@ -167,19 +181,19 @@ The weighting factor comes from the 0.5 in the denominator. The range is 0 to 1.
 
 =head2 intersection
 
-  my $similarity = $object->from_tokens(['a'],['b']);
+  my $intersection_size = $object->intersection({'a' => undef},{'b' => undef});
   
 =head2 combined_length
 
-  my $similarity = $object->from_tokens(['a'],['b']);
+  my $set_size_sum = $object->combined_length({'a' => undef},{'b' => undef});
 
 =head2 min
 
-  my $similarity = $object->from_tokens(['a'],['b']);
+  my $min_set_size = $object->min({'a' => undef},{'b' => undef});
   
 =head2 ngrams
 
-  my $similarity = $object->from_tokens(['a'],['b']);
+  my $bigrams = $object->ngrams('abc',2);
 
 
 
