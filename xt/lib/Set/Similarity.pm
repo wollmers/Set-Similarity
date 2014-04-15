@@ -3,7 +3,7 @@ package Set::Similarity;
 use strict;
 use warnings;
 
-our $VERSION = 0.002;
+our $VERSION = 0.001;
 
 sub new {
   my $class = shift;
@@ -84,6 +84,7 @@ sub from_sets {
   );
 }
 
+
 sub intersection { 
   scalar grep { exists ${$_[1]}{$_} } keys %{$_[2]}; 
 }
@@ -96,6 +97,7 @@ sub min {
   (scalar(keys %{$_[1]}) < scalar(keys %{$_[2]}))
     ? scalar(keys %{$_[1]}) : scalar(keys %{$_[2]});
 }
+
 
 1;
 
@@ -179,19 +181,19 @@ The weighting factor comes from the 0.5 in the denominator. The range is 0 to 1.
 
 =head2 intersection
 
-  my $intersection_size = $object->intersection({'a' => undef},{'b' => undef});
+  my $similarity = $object->from_tokens(['a'],['b']);
   
 =head2 combined_length
 
-  my $set_size_sum = $object->combined_length({'a' => undef},{'b' => undef});
+  my $similarity = $object->from_tokens(['a'],['b']);
 
 =head2 min
 
-  my $min_set_size = $object->min({'a' => undef},{'b' => undef});
+  my $similarity = $object->from_tokens(['a'],['b']);
   
 =head2 ngrams
 
-  my $bigrams = $object->ngrams('abc',2);
+  my $similarity = $object->from_tokens(['a'],['b']);
 
 
 
