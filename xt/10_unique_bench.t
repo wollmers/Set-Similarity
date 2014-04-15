@@ -4,35 +4,32 @@ use warnings;
 
 use Benchmark qw(:all);
 
+print STDERR 'wu: ',wu(),"\n";
+print STDERR 'wo: ',wo(),"\n";
 
-cmpthese(10_000, {
+
+cmpthese(100_000, {
         'withuniq' => sub { wu(); },
         'without' => sub { wo(); },
-    });
-
-
+});
 
 sub wu {
-my $wu = 'WithUniq';
+  my $wu = 'WithUniq';
 
-$wu->from_tokens(
-  [qw(a b c)],
-  [qw(a b c)],
-);
+  $wu->from_tokens(
+    [qw(f o t o g r a f  )],
+    [qw( p h o t o g r a p h e r)],
+  );
 }
 
 sub wo {
-my $wu = 'Without';
+  my $wu = 'Without';
 
-$wu->from_tokens(
-  [qw(a b c)],
-  [qw(a b c)],
-);
+  $wu->from_tokens(
+    [qw(f o t o g r a f  )],
+    [qw( p h o t o g r a p h e r)],
+  );
 }
-
-
-
-
 
 
 
@@ -45,14 +42,7 @@ sub from_tokens {
   my $self = shift;
   my $tokens1 = shift || [];
   my $tokens2 = shift || [];
-  
-  $tokens1 = ref $tokens1 ? $tokens1 : [$tokens1];
-  $tokens2 = ref $tokens2 ? $tokens2 : [$tokens2];
-  
-  # uncoverable condition false
-  return 1 if (!scalar @$tokens1 && !scalar @$tokens2);
-  return 0 unless (scalar @$tokens1 && scalar @$tokens2 );
-  
+    
   return $self->from_sets(
     [$self->uniq($tokens1)],
     [$self->uniq($tokens2)],
@@ -72,7 +62,7 @@ sub from_sets {
 sub intersection { 
   my %uniq;
   @uniq{@{$_[1]}} = ();
-  scalar grep { exists $uniq{$_} } @{$_[2]}; 
+  scalar grep { exists $uniq{$_} } @{$_[2]};
 }
 
 sub uniq {
@@ -80,7 +70,6 @@ sub uniq {
   @uniq{@{$_[1]}} = ();
   return keys %uniq; 
 }
-
 
 sub min {
   (scalar(@{$_[1]}) < scalar(@{$_[2]}))
@@ -96,8 +85,6 @@ sub min {
 
 
 
-
-
 {
 package Without;
 
@@ -105,14 +92,7 @@ sub from_tokens {
   my $self = shift;
   my $tokens1 = shift || [];
   my $tokens2 = shift || [];
-  
-  $tokens1 = ref $tokens1 ? $tokens1 : [$tokens1];
-  $tokens2 = ref $tokens2 ? $tokens2 : [$tokens2];
-  
-  # uncoverable condition false
-  return 1 if (!scalar @$tokens1 && !scalar @$tokens2);
-  return 0 unless (scalar @$tokens1 && scalar @$tokens2 );
-  
+    
   my %unique1;
   @unique1{@$tokens1} = ();
   my %unique2;
