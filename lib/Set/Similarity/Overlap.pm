@@ -5,8 +5,6 @@ use warnings;
 
 use parent 'Set::Similarity';
 
-=comment
-
 sub from_sets {
   my ($self, $set1, $set2) = @_;
 
@@ -15,8 +13,6 @@ sub from_sets {
     $self->intersection($set1,$set2) / $self->min($set1,$set2)
   );
 }
-
-=cut
 
 1;
 
