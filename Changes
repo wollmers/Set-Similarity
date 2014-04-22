@@ -1,6 +1,8 @@
 Revision history for Set::Similarity
 
 {{$NEXT}}
+
+0.002  2014-04-22 22:44:52 CEST
        - Added Set::Similarity::Cosine
 
 0.001  2014-03-18
