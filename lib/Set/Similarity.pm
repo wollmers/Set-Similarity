@@ -3,7 +3,7 @@ package Set::Similarity;
 use strict;
 use warnings;
 
-our $VERSION = 0.003;
+our $VERSION = 0.004;
 
 sub new {
   my $class = shift;
