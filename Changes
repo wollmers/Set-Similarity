@@ -1,6 +1,7 @@
 Revision history for Set::Similarity
 
 {{$NEXT}}
+       - improve docs
 
 0.003  2014-04-30 21:59:32 CEST
        - remove mymeta
