@@ -45,7 +45,7 @@
          }
       }
    },
-   "release_status" : "stable",
+   "release_status" : "testing",
    "resources" : {
       "bugtracker" : {
          "web" : "https://github.com/wollmers/Set-Similarity/issues"
@@ -57,7 +57,7 @@
          "web" : "https://github.com/wollmers/Set-Similarity"
       }
    },
-   "version" : "0.004",
+   "version" : "0.005",
    "x_contributors" : [
       "Helmut Wollmersdorfer <helmut@wollmersdorfer.at>",
       "helmut <helmut@acerone.woll.internal>",
