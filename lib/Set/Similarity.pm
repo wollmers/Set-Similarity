@@ -59,6 +59,13 @@ sub from_tokens {
   my $self = shift;
   my $tokens1 = shift || [];
   my $tokens2 = shift || [];
+
+  $tokens1 = ref $tokens1 ? $tokens1 : [$tokens1];
+  $tokens2 = ref $tokens2 ? $tokens2 : [$tokens2];
+
+  # uncoverable condition false
+  return 1 if (!scalar @$tokens1 && !scalar @$tokens2);
+  return 0 unless (scalar @$tokens1 && scalar @$tokens2 );
     
   return $self->from_sets(
     [$self->uniq($tokens1)],
@@ -86,6 +93,10 @@ sub uniq {
   my %uniq; 
   @uniq{@{$_[1]}} = ();
   return keys %uniq; 
+}
+
+sub combined_length {
+  scalar(@{$_[1]}) + scalar(@{$_[2]});
 }
 
 sub min {
