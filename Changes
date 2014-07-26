@@ -1,6 +1,8 @@
 Revision history for Set::Similarity
 
 {{$NEXT}}
+
+0.007  2014-07-26 18:14:04 CEST
        - use arrayref
 
 0.006  2014-05-17 20:43:12 CEST
