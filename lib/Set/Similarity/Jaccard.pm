@@ -33,7 +33,7 @@ Set::Similarity::Jaccard - Jaccard coefficent for sets
  my $similarity = $jaccard->similarity('Photographer','Fotograf');
  
  # class method
- my $jaccard = 'Set::Similarity::Dice';
+ my $jaccard = 'Set::Similarity::Jaccard';
  my $similarity = $jaccard->similarity('Photographer','Fotograf');
  
  # from 2-grams
@@ -62,20 +62,20 @@ Set::Similarity::Jaccard - Jaccard coefficent for sets
  };
  my $similarity = $jaccard->similarity($bird,$mammal);
  
- # from hashref sets
- my $bird = {
-   wings    => undef,
-   eyes     => undef,
-   feathers => undef,
-   legs     => undef,
- };
- my $mammal = {
-   eyes     => undef,
-   hairs    => undef,
-   legs     => undef,
-   arms     => undef, 
- };
- my $similarity = $jaccard->from_sets($bird,$mammal); 
+ # from arrayref sets
+ my $bird = [qw(
+   wings
+   eyes
+   feathers
+   legs
+ )];
+ my $mammal = [qw(
+   eyes
+   hairs
+   legs
+   arms
+ )];
+ my $similarity = $jaccard->from_sets($bird,$mammal);
 
 =head1 DESCRIPTION
 
@@ -100,8 +100,12 @@ following new ones.
 
 =head2 from_sets
 
-  my $similarity = $object->from_sets({'a' => undef},{'b' => undef});
+  my $similarity = $object->from_sets(['a'],['b']);
 
+This method expects two arrayrefs of strings as parameters. The parameters are not checked, thus can lead to funny results or uncatched divisions by zero.
+ 
+If you want to use this method directly, you should take care that the elements are unique. Also you should catch the situation where one of the arrayrefs is empty (similarity is 0), or both are empty (similarity is 1).
+ 
 =head1 SOURCE REPOSITORY
 
 L<http://github.com/wollmers/Set-Similarity>
@@ -112,7 +116,7 @@ Helmut Wollmersdorfer, E<lt>helmut.wollmersdorfer@gmail.comE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2013 by Helmut Wollmersdorfer
+Copyright (C) 2013-2014 by Helmut Wollmersdorfer
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
