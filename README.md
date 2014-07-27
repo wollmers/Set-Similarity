@@ -20,13 +20,40 @@ Set::Similarity - similarity measures for sets
     
     # from arrayref of tokens
     my $similarity = $dice->similarity(['a','b'],['b']);
-    
-    # from hashref of features
+
+    # from hashref of features 
+    my $bird = {
+      wings    => true,
+      eyes     => true,
+      feathers => true,
+      hairs    => false,
+      legs     => true,
+      arms     => false,
+    };
+    my $mammal = {
+      wings    => false,
+      eyes     => true,
+      feathers => false,
+      hairs    => true,
+      legs     => true,
+      arms     => true, 
+    };
+    my $similarity = $dice->similarity($bird,$mammal);
     
     # from arrayref sets
-    
-
-    
+    my $bird = [qw(
+      wings
+      eyes
+      feathers
+      legs
+    )];
+    my $mammal = [qw(
+      eyes
+      hairs
+      legs
+      arms
+    )];
+    my $similarity = $dice->from_sets($bird,$mammal);
 
 # DESCRIPTION
 
@@ -40,7 +67,7 @@ The Jaccard coefficient measures similarity between sample sets, and is defined 
 
 ( A intersect B ) / (A union B)
 
-The Tanimoto coefficient is the ratio of the number of features common to both molecules to the total number of features, i.e.
+The Tanimoto coefficient is the ratio of the number of features common to both sets to the total number of features, i.e.
 
 ( A intersect B ) / ( A + B - ( A intersect B ) ) # the same as Jaccard 
 
@@ -48,7 +75,7 @@ The range is 0 to 1 inclusive.
 
 ## Dice coefficient
 
-The Dice coefficient is the number of features in common to both molecules relative to the average size of the total number of features present, i.e.
+The Dice coefficient is the number of features in common to both sets relative to the average size of the total number of features present, i.e.
 
 ( A intersect B ) / 0.5 ( A + B ) # the same as sorensen
 
@@ -71,25 +98,26 @@ The weighting factor comes from the 0.5 in the denominator. The range is 0 to 1.
 
 ## from\_sets
 
-    my $similarity = $object->from_sets({'a' => undef},{'b' => undef});
+    my $similarity = $object->from_sets(['a'],['b']);
 
 ## intersection
 
-    my $intersection_size = $object->intersection({'a' => undef},{'b' => undef});
+    my $intersection_size = $object->intersection(['a'],['b']);
     
 
 ## combined\_length
 
-    my $set_size_sum = $object->combined_length({'a' => undef},{'b' => undef});
+    my $set_size_sum = $object->combined_length(['a'],['b']);
 
 ## min
 
-    my $min_set_size = $object->min({'a' => undef},{'b' => undef});
+    my $min_set_size = $object->min(['a'],['b']);
     
 
 ## ngrams
 
-    my $bigrams = $object->ngrams('abc',2);
+    my @monograms = $object->ngrams('abc');
+    my @bigrams = $object->ngrams('abc',2);
 
 # SOURCE REPOSITORY
 
