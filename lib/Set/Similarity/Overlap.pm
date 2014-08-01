@@ -28,55 +28,9 @@ Set::Similarity::Overlap - Overlap coefficent for sets
 
  use Set::Similarity::Overlap;
  
- # object method
  my $overlap = Set::Similarity::Overlap->new;
  my $similarity = $overlap->similarity('Photographer','Fotograf');
  
- # class method
- my $overlap = 'Set::Similarity::Overlap';
- my $similarity = $overlap->similarity('Photographer','Fotograf');
- 
- # from 2-grams
- my $width = 2;
- my $similarity = $overlap->similarity('Photographer','Fotograf',$width);
- 
- # from arrayref of tokens
- my $similarity = $overlap->similarity(['a','b'],['b']);
- 
- # from hashref of features
- my $bird = {
-   wings    => true,
-   eyes     => true,
-   feathers => true,
-   hairs    => false,
-   legs     => true,
-   arms     => false,
- };
- my $mammal = {
-   wings    => false,
-   eyes     => true,
-   feathers => false,
-   hairs    => true,
-   legs     => true,
-   arms     => true, 
- };
- my $similarity = $overlap->similarity($bird,$mammal);
- 
- # from arrayref sets
- my $bird = [qw(
-   wings
-   eyes
-   feathers
-   legs
- )];
- my $mammal = [qw(
-   eyes
-   hairs
-   legs
-   arms
- )];
- my $similarity = $overlap->from_sets($bird,$mammal); 
-
 =head1 DESCRIPTION
 
 =head2 Overlap coefficient

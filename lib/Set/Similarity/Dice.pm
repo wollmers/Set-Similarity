@@ -28,55 +28,10 @@ Set::Similarity::Dice - Dice coefficent for sets
 
  use Set::Similarity::Dice;
  
- # object method
  my $dice = Set::Similarity::Dice->new;
  my $similarity = $dice->similarity('Photographer','Fotograf');
  
- # class method
- my $dice = 'Set::Similarity::Dice';
- my $similarity = $dice->similarity('Photographer','Fotograf');
  
- # from 2-grams
- my $width = 2;
- my $similarity = $dice->similarity('Photographer','Fotograf',$width);
- 
- # from arrayref of tokens
- my $similarity = $dice->similarity(['a','b'],['b']);
- 
- # from hashref of features
- my $bird = {
-   wings    => true,
-   eyes     => true,
-   feathers => true,
-   hairs    => false,
-   legs     => true,
-   arms     => false,
- };
- my $mammal = {
-   wings    => false,
-   eyes     => true,
-   feathers => false,
-   hairs    => true,
-   legs     => true,
-   arms     => true, 
- };
- my $similarity = $dice->similarity($bird,$mammal);
- 
- # from arrayref sets
- my $bird = [qw(
-   wings
-   eyes
-   feathers
-   legs
- )];
- my $mammal = [qw(
-   eyes
-   hairs
-   legs
-   arms
- )];
- my $similarity = $dice->from_sets($bird,$mammal);
-
 =head1 DESCRIPTION
 
 =head2 Dice coefficient
