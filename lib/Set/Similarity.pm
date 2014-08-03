@@ -194,6 +194,7 @@ The weighting factor comes from the 0.5 in the denominator. The range is 0 to 1.
 
 =head1 METHODS
 
+All methods can be used as class or object methods.
 
 =head2 new
 
@@ -201,11 +202,15 @@ The weighting factor comes from the 0.5 in the denominator. The range is 0 to 1.
 
 =head2 similarity
 
-  my $similarity = $object->similarity('a','b');
+  my $similarity = $object->similarity($any1,$any1,$width);
+  
+C<$any> can be an arrayref, a hashref or a string. Strings are tokenized into n-grams of width C<$width>.
+
+C<$width> must be integer, default is 1.
   
 =head2 from_tokens
 
-  my $similarity = $object->from_tokens(['a'],['b']);
+  my $similarity = $object->from_tokens(['a','b'],['b']);
 
 =head2 from_sets
 
@@ -228,7 +233,9 @@ The weighting factor comes from the 0.5 in the denominator. The range is 0 to 1.
   my @monograms = $object->ngrams('abc');
   my @bigrams = $object->ngrams('abc',2);
 
+=head2 _any
 
+  my $arrayref = $object->_any($any,$width);
 
 =head1 SOURCE REPOSITORY
 
