@@ -1,6 +1,8 @@
 Revision history for Set::Similarity
 
 {{$NEXT}}
+
+0.013  2014-08-04 14:26:05 CEST
        - repair versioning
 
 0.012  2014-08-03 22:03:41 CEST
