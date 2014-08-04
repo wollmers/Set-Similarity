@@ -83,18 +83,24 @@ The weighting factor comes from the 0.5 in the denominator. The range is 0 to 1.
 
 # METHODS
 
+All methods can be used as class or object methods.
+
 ## new
 
     $object = Set::Similarity->new();
 
 ## similarity
 
-    my $similarity = $object->similarity('a','b');
+    my $similarity = $object->similarity($any1,$any1,$width);
     
+
+`$any` can be an arrayref, a hashref or a string. Strings are tokenized into n-grams of width `$width`.
+
+`$width` must be integer, default is 1.
 
 ## from\_tokens
 
-    my $similarity = $object->from_tokens(['a'],['b']);
+    my $similarity = $object->from_tokens(['a','b'],['b']);
 
 ## from\_sets
 
@@ -118,6 +124,10 @@ The weighting factor comes from the 0.5 in the denominator. The range is 0 to 1.
 
     my @monograms = $object->ngrams('abc');
     my @bigrams = $object->ngrams('abc',2);
+
+## \_any
+
+    my $arrayref = $object->_any($any,$width);
 
 # SOURCE REPOSITORY
 
