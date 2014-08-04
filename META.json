@@ -57,7 +57,7 @@
          "web" : "https://github.com/wollmers/Set-Similarity"
       }
    },
-   "version" : "0.011",
+   "version" : "0.012",
    "x_contributors" : [
       "Helmut Wollmersdorfer <helmut@wollmersdorfer.at>",
       "helmut <helmut@acerone.woll.internal>",
