@@ -4,7 +4,7 @@
       "Helmut Wollmersdorfer, <helmut.wollmersdorfer@gmail.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Milla version v1.0.4, Dist::Zilla version 5.019, CPAN::Meta::Converter version 2.132830",
+   "generated_by" : "Dist::Milla version v1.0.4, Dist::Zilla version 5.015, CPAN::Meta::Converter version 2.141170",
    "license" : [
       "perl_5"
    ],
@@ -36,6 +36,7 @@
       },
       "runtime" : {
          "requires" : {
+            "Carp" : "0",
             "perl" : "5.006000"
          }
       },
@@ -57,8 +58,9 @@
          "web" : "https://github.com/wollmers/Set-Similarity"
       }
    },
-   "version" : "0.013",
+   "version" : "0.014",
    "x_contributors" : [
+      "Helmut Wollmersdorfer <helmut.wollmersdorfer@fixpunkt.de>",
       "Helmut Wollmersdorfer <helmut@wollmersdorfer.at>",
       "helmut <helmut@acerone.woll.internal>",
       "wollmers <helmut@wollmersdorfer.at>"
