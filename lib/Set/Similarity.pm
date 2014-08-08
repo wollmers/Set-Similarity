@@ -75,7 +75,7 @@ sub from_tokens {
   );
 }
 
-sub from_sets { croak 'Method "from_bags" not implemented in subclass' }
+sub from_sets { croak 'Method "from_sets" not implemented in subclass' }
 
 sub intersection { 
   my %uniq;

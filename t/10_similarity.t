@@ -42,13 +42,6 @@ is_deeply($object->_any({}),[],'empty hashref is empty list');
 is_deeply($object->_any({'a' => 1}),['a'],'hash a => 1');
 #is_deeply($object->_any({'a'=>1,'b'=>1}),['a','b'],'hash ab'); # TODO
 
-is($object->from_tokens(),1,'from tokens() is 1');
-is($object->from_tokens(undef,['a']),0,'from tokens(undef,[a]) is 0');
-is($object->from_tokens(['a'],undef),0,'from tokens(undef,[a]) is 0');
-
-
-
-is($object->from_tokens(1,1),1,'from tokens(1,1) is 1');
 
 
 done_testing;
