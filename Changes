@@ -1,6 +1,7 @@
 Revision history for Set::Similarity
 
 {{$NEXT}}
+       - remove default method and croak
 
 0.013  2014-08-04 14:26:05 CEST
        - repair versioning

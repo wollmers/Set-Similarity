@@ -5,6 +5,8 @@ use warnings;
 
 our $VERSION = '0.013';
 
+use Carp 'croak';
+
 sub new {
   my $class = shift;
   # uncoverable condition false
@@ -73,15 +75,7 @@ sub from_tokens {
   );
 }
 
-# overlap is default
-sub from_sets {
-  my ($self, $set1, $set2) = @_;
-
-  # ( A intersect B ) / min(A,B)  
-  return (
-    $self->intersection($set1,$set2) / $self->min($set1,$set2)
-  );
-}
+sub from_sets { croak 'Method "from_bags" not implemented in subclass' }
 
 sub intersection { 
   my %uniq;
