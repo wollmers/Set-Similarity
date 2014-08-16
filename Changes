@@ -1,6 +1,7 @@
 Revision history for Set::Similarity
 
 {{$NEXT}}
+       - badges in pod
 
 0.016  2014-08-16 13:24:55 CEST
        - test croak
