@@ -1,6 +1,8 @@
 Revision history for Set::Similarity
 
 {{$NEXT}}
+
+0.015  2014-08-16 07:47:26 CEST
        - add travis
 
 0.014  2014-08-08 22:59:01 CEST
