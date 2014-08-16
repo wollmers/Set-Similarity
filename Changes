@@ -1,6 +1,8 @@
 Revision history for Set::Similarity
 
 {{$NEXT}}
+
+0.016  2014-08-16 13:24:55 CEST
        - test croak
 
 0.015  2014-08-16 07:47:26 CEST

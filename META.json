@@ -42,6 +42,7 @@
       },
       "test" : {
          "requires" : {
+            "Test::Exception" : "0",
             "Test::More" : "0.88"
          }
       }
@@ -58,7 +59,7 @@
          "web" : "https://github.com/wollmers/Set-Similarity"
       }
    },
-   "version" : "0.015",
+   "version" : "0.016",
    "x_contributors" : [
       "Helmut Wollmersdorfer <helmut.wollmersdorfer@fixpunkt.de>",
       "Helmut Wollmersdorfer <helmut@wollmersdorfer.at>",
