@@ -106,6 +106,11 @@ __END__
 
 Set::Similarity - similarity measures for sets
 
+=for html
+
+<a href="https://travis-ci.org/wollmers/Set-Similarity"><img src="https://travis-ci.org/wollmers/Set-Similarity.png" alt="Set-Similarity"></a>
+<a href='https://coveralls.io/r/wollmers/Set-Similarity?branch=master'><img src='https://coveralls.io/repos/wollmers/Set-Similarity/badge.png?branch=master' alt='Coverage Status' /></a>
+
 =head1 SYNOPSIS
 
  use Set::Similarity::Dice;

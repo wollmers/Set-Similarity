@@ -42,6 +42,4 @@ is_deeply($object->_any({}),[],'empty hashref is empty list');
 is_deeply($object->_any({'a' => 1}),['a'],'hash a => 1');
 #is_deeply($object->_any({'a'=>1,'b'=>1}),['a','b'],'hash ab'); # TODO
 
-
-
 done_testing;
