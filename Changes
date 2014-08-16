@@ -1,6 +1,7 @@
 Revision history for Set::Similarity
 
 {{$NEXT}}
+       - test croak
 
 0.015  2014-08-16 07:47:26 CEST
        - add travis

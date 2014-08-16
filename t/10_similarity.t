@@ -5,12 +5,16 @@ use warnings;
 use lib qw(../lib/ );
 
 use Test::More;
+use Test::Exception;
 
 my $class = 'Set::Similarity';
 
 use_ok($class);
 
 my $object = new_ok($class);
+
+dies_ok { $object->from_sets() } ;
+
 ok($object->new());
 ok($object->new(1,2));
 ok($object->new({}));
