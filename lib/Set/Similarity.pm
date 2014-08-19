@@ -42,12 +42,11 @@ sub _any {
 sub ngrams {
   my ($self, $word, $width) = @_;
 
-  $width = 1 unless defined $width;
+  $width = 1 unless ($width && $width =~ m/^[1-9][0-9]*$/x);
   $word ||= '';
 
   my @ngrams;
-  return @ngrams 
-    unless ($width =~ m/^[1-9][0-9]*$/x && $width <= length($word));
+  return @ngrams unless ($width <= length($word));
 
   for my $i (0..length($word)-$width) {
     my $ngram = substr $word,$i,$width;
@@ -58,12 +57,7 @@ sub ngrams {
 }
 
 sub from_tokens {
-  my $self = shift;
-  my $tokens1 = shift || [];
-  my $tokens2 = shift || [];
-
-  $tokens1 = ref $tokens1 ? $tokens1 : [$tokens1];
-  $tokens2 = ref $tokens2 ? $tokens2 : [$tokens2];
+  my ($self, $tokens1, $tokens2) = @_;
 
   # uncoverable condition false
   return 1 if (!scalar @$tokens1 && !scalar @$tokens2);

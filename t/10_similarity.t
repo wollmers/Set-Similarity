@@ -22,8 +22,11 @@ ok($object->new({a => 1}));
 
 
 is_deeply([$object->ngrams('',0)],[],'zerogram empty string is empty');
-is_deeply([$object->ngrams('a',0)],[],'zerogram single character is empty');
-is_deeply([$object->ngrams('ab',0)],[],'zerogram two characters is empty');
+is_deeply([$object->ngrams('a',0)],['a'],'o-gram string a is 1-gram string a');
+is_deeply([$object->ngrams('ab',0)],['a','b'],'o-gram string ab is 1-gram ab');
+is_deeply([$object->ngrams('a',0.3)],['a'],'o.3-gram string a is 1-gram string a');
+is_deeply([$object->ngrams('ab',0.3)],['a','b'],'o.3-gram string ab is 1-gram ab');
+
 is_deeply([$object->ngrams('a',1)],['a'],'monogram single character');
 is_deeply([$object->ngrams('ab',1)],['a','b'],'monogram two characters');
 is_deeply([$object->ngrams('',2)],[],'bigram empty string is empty');
@@ -32,8 +35,8 @@ is_deeply([$object->ngrams('ab',2)],['ab'],'bigram two characters');
 is_deeply([$object->ngrams('abc',2)],['ab','bc'],'bigram three characters');
 
 is_deeply($object->_any('',0),[],'o-gram empty string is empty list');
-is_deeply($object->_any('a',0),[],'o-gram string a is empty list');
-is_deeply($object->_any('ab',0),[],'o-gram string ab is empty list');
+is_deeply($object->_any('a',0),['a'],'o-gram string a is 1-gram string a');
+is_deeply($object->_any('ab',0),['a','b'],'o-gram string ab is 1-gram ab');
 is_deeply($object->_any('a',1),['a'],'1-gram string a');
 is_deeply($object->_any('ab',1),['a','b'],'1-gram ab');
 is_deeply($object->_any('',2),[],'bigram empty string is empty');
@@ -41,9 +44,10 @@ is_deeply($object->_any('a',2),[],'bigram single character is empty');
 is_deeply($object->_any('ab',2),['ab'],'bigram two characters');
 is_deeply($object->_any('abc',2),['ab','bc'],'bigram three characters');
 
+is_deeply($object->_any(),[],'empty param is empty list');
 is_deeply($object->_any(sub {}),[],'coderef is empty list');
 is_deeply($object->_any({}),[],'empty hashref is empty list');
 is_deeply($object->_any({'a' => 1}),['a'],'hash a => 1');
-#is_deeply($object->_any({'a'=>1,'b'=>1}),['a','b'],'hash ab'); # TODO
+is_deeply( [sort @{$object->_any({'a'=>1,'b'=>1})}],['a','b'],'hash ab');
 
 done_testing;

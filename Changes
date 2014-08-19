@@ -1,6 +1,7 @@
 Revision history for Set::Similarity
 
 {{$NEXT}}
+       - remove useless code, force 1-gram if width not integer
 
 0.017  2014-08-16 23:43:23 CEST
        - badges in pod
