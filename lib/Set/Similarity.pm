@@ -46,7 +46,13 @@ sub ngrams {
   $word ||= '';
 
   my @ngrams;
-  return @ngrams unless ($width <= length($word));
+  #return @ngrams unless ($width <= length($word));
+  
+  if ($width > length($word)) {
+    for (1..$width-length($word)) {
+      $word .= ' ';
+    }
+  }
 
   for my $i (0..length($word)-$width) {
     my $ngram = substr $word,$i,$width;
