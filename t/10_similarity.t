@@ -13,12 +13,16 @@ use_ok($class);
 
 my $object = new_ok($class);
 
+
+
 dies_ok { $object->from_sets() } ;
 
 ok($object->new());
 ok($object->new(1,2));
 ok($object->new({}));
 ok($object->new({a => 1}));
+
+ok($class->new());
 
 
 is_deeply([$object->ngrams('',0)],[''],'zerogram empty string is empty string');

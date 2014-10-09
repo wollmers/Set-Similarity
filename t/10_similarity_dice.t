@@ -14,6 +14,11 @@ use_ok($class);
 
 my $object = $class;
 
+is($object->from_tokens([],['a','b']),0,'empty, ab tokens');
+is($object->from_tokens(['a','b'],[]),0,'ab, empty tokens');
+is($object->from_tokens([],[]),1,'both empty tokens');
+
+
 is($object->similarity(),1,'empty params');
 is($object->similarity('a',),0,'a string');
 is($object->similarity('a','b'),0,'a,b strings');

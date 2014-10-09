@@ -1,6 +1,8 @@
 Revision history for Set::Similarity
 
 {{$NEXT}}
+       - improved test and pod coverage
+       - improved documentation
 
 0.020  2014-08-20 20:01:02 CEST
        - remove n-gram padding, return the unchanged word if shorter

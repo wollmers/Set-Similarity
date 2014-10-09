@@ -9,6 +9,7 @@ use Carp 'croak';
 
 sub new {
   my $class = shift;
+  
   # uncoverable condition false
   bless @_ ? @_ > 1 ? {@_} : {%{$_[0]}} : {}, ref $class || $class;
 }
@@ -45,21 +46,15 @@ sub ngrams {
   $width = 1 unless ($width && $width =~ m/^[1-9][0-9]*$/x);
   $word ||= '';
 
-  my @ngrams;
-
   return ($word) unless ($width <= length($word));
 
-  for my $i (0..length($word)-$width) {
-    my $ngram = substr $word,$i,$width;
-    push @ngrams,$ngram;
-  }
-
-  return @ngrams;
+  return map {substr $word,$_,$width;} (0..length($word)-$width);
 }
 
 sub from_tokens {
   my ($self, $tokens1, $tokens2) = @_;
 
+  # uncoverable condition right
   # uncoverable condition false
   return 1 if (!scalar @$tokens1 && !scalar @$tokens2);
   return 0 unless (scalar @$tokens1 && scalar @$tokens2 );
@@ -160,6 +155,7 @@ Set::Similarity - similarity measures for sets
 
 =head1 DESCRIPTION
 
+This is the base class including mainly helper and convenience methods.
 
 =head2 Overlap coefficient
 
@@ -199,7 +195,7 @@ All methods can be used as class or object methods.
   
 C<$any> can be an arrayref, a hashref or a string. Strings are tokenized into n-grams of width C<$width>.
 
-C<$width> must be integer, default is 1.
+C<$width> must be integer, or defaults to 1.
   
 =head2 from_tokens
 
@@ -208,10 +204,18 @@ C<$width> must be integer, default is 1.
 =head2 from_sets
 
   my $similarity = $object->from_sets(['a'],['b']);
+  
+Croaks if called directly. This method should be implemented in a child module.
 
 =head2 intersection
 
   my $intersection_size = $object->intersection(['a'],['b']);
+  
+=head2 uniq
+
+  my @uniq = $object->uniq(['a','b']);
+  
+Transforms an arrayref of strings into an array of unique elements.
   
 =head2 combined_length
 
@@ -229,6 +233,25 @@ C<$width> must be integer, default is 1.
 =head2 _any
 
   my $arrayref = $object->_any($any,$width);
+  
+=head1 SEE ALSO
+
+L<Set::Similarity::Cosine>
+
+L<Set::Similarity::Dice>
+
+L<Set::Similarity::Jaccard>
+
+L<Set::Similarity::Overlap>
+
+L<Bag::Similarity> doing the same for bags or multisets.
+
+L<Text::Levenshtein> for distance measures of strings, and a very overview of similar modules,
+
+L<http://en.wikipedia.org/wiki/String_metric> for an overview of similarity measures.
+
+L<Cluster::Similarity> for clusters.
+
 
 =head1 SOURCE REPOSITORY
 
