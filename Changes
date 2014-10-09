@@ -1,6 +1,8 @@
 Revision history for Set::Similarity
 
 {{$NEXT}}
+
+0.021  2014-10-09 13:36:47 CEST
        - improved test and pod coverage
        - improved documentation
 

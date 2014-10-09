@@ -63,6 +63,8 @@ Set::Similarity - similarity measures for sets
 
 # DESCRIPTION
 
+This is the base class including mainly helper and convenience methods.
+
 ## Overlap coefficient
 
 ( A intersect B ) / min(A,B)
@@ -102,7 +104,7 @@ All methods can be used as class or object methods.
 
 `$any` can be an arrayref, a hashref or a string. Strings are tokenized into n-grams of width `$width`.
 
-`$width` must be integer, default is 1.
+`$width` must be integer, or defaults to 1.
 
 ## from\_tokens
 
@@ -111,11 +113,21 @@ All methods can be used as class or object methods.
 ## from\_sets
 
     my $similarity = $object->from_sets(['a'],['b']);
+    
+
+Croaks if called directly. This method should be implemented in a child module.
 
 ## intersection
 
     my $intersection_size = $object->intersection(['a'],['b']);
     
+
+## uniq
+
+    my @uniq = $object->uniq(['a','b']);
+    
+
+Transforms an arrayref of strings into an array of unique elements.
 
 ## combined\_length
 
@@ -134,6 +146,25 @@ All methods can be used as class or object methods.
 ## \_any
 
     my $arrayref = $object->_any($any,$width);
+    
+
+# SEE ALSO
+
+[Set::Similarity::Cosine](https://metacpan.org/pod/Set::Similarity::Cosine)
+
+[Set::Similarity::Dice](https://metacpan.org/pod/Set::Similarity::Dice)
+
+[Set::Similarity::Jaccard](https://metacpan.org/pod/Set::Similarity::Jaccard)
+
+[Set::Similarity::Overlap](https://metacpan.org/pod/Set::Similarity::Overlap)
+
+[Bag::Similarity](https://metacpan.org/pod/Bag::Similarity) doing the same for bags or multisets.
+
+[Text::Levenshtein](https://metacpan.org/pod/Text::Levenshtein) for distance measures of strings, and a very overview of similar modules,
+
+[http://en.wikipedia.org/wiki/String\_metric](http://en.wikipedia.org/wiki/String_metric) for an overview of similarity measures.
+
+[Cluster::Similarity](https://metacpan.org/pod/Cluster::Similarity) for clusters.
 
 # SOURCE REPOSITORY
 
