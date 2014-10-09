@@ -5,7 +5,7 @@ use warnings;
 
 use parent 'Set::Similarity';
 
-our $VERSION = '0.021';
+our $VERSION = '0.022';
 
 sub from_sets {
   my ($self, $set1, $set2) = @_;
