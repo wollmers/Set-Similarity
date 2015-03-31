@@ -6,6 +6,8 @@ Set::Similarity - similarity measures for sets
 
     <a href="https://travis-ci.org/wollmers/Set-Similarity"><img src="https://travis-ci.org/wollmers/Set-Similarity.png" alt="Set-Similarity"></a>
     <a href='https://coveralls.io/r/wollmers/Set-Similarity?branch=master'><img src='https://coveralls.io/repos/wollmers/Set-Similarity/badge.png?branch=master' alt='Coverage Status' /></a>
+    <a href='http://cpants.cpanauthors.org/dist/Set-Similarity'><img src='http://cpants.cpanauthors.org/dist/Set-Similarity.png' alt='Kwalitee Score' /></a>
+    <a href="http://badge.fury.io/pl/Set-Similarity"><img src="https://badge.fury.io/pl/Set-Similarity.svg" alt="CPAN version" height="18"></a>
 </div>
 
 # SYNOPSIS
@@ -174,9 +176,14 @@ Transforms an arrayref of strings into an array of unique elements.
 
 Helmut Wollmersdorfer, <helmut.wollmersdorfer@gmail.com>
 
+<div>
+
+    <a href='http://cpants.cpanauthors.org/author/wollmers'><img src='http://cpants.cpanauthors.org/author/wollmers.png' alt='Kwalitee Score' /></a>
+</div>
+
 # COPYRIGHT AND LICENSE
 
-Copyright (C) 2013-2014 by Helmut Wollmersdorfer
+Copyright (C) 2013-2015 by Helmut Wollmersdorfer
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
