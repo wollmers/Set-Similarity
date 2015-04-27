@@ -1,6 +1,8 @@
 Revision history for Set::Similarity
 
 {{$NEXT}}
+
+0.024  2015-04-27 15:44:19 CEST
        - improved travis configuration and badges
 
 0.023  2015-03-31 12:15:04 CEST
