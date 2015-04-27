@@ -7,8 +7,15 @@ perl:
   - "5.12"
   - "5.10"
   - "5.8"
-before_install:
-  cpanm -n Devel::Cover &&
-  cpanm -n Devel::Cover::Report::Coveralls
+
+install:
+  - export RELEASE_TESTING=1 AUTOMATED_TESTING=1 AUTHOR_TESTING=1 HARNESS_OPTIONS=c HARNESS_TIMER=1
+  - cpanm --quiet --notest Devel::Cover::Report::Coveralls
+  - cpanm --quiet --notest --installdeps --with-develop .
+
 script:
-  perl Build.PL && ./Build build && cover -test -report coveralls
+  - PERL5OPT=-MDevel::Cover='-coverage,statement,branch,condition,path,subroutine,+ignore,bin/prove\b,t/author' prove -lrsv t
+  - cover
+
+after_success:
+  - cover -report coveralls
