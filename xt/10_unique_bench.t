@@ -42,7 +42,7 @@ sub from_tokens {
   my $self = shift;
   my $tokens1 = shift || [];
   my $tokens2 = shift || [];
-    
+
   return $self->from_sets(
     [$self->uniq($tokens1)],
     [$self->uniq($tokens2)],
@@ -53,22 +53,22 @@ sub from_tokens {
 sub from_sets {
   my ($self, $set1, $set2) = @_;
 
-  # ( A intersect B ) / min(A,B)  
+  # ( A intersect B ) / min(A,B)
   return (
     $self->intersection($set1,$set2) / $self->min($set1,$set2)
   );
 }
 
-sub intersection { 
+sub intersection {
   my %uniq;
   @uniq{@{$_[1]}} = ();
   scalar grep { exists $uniq{$_} } @{$_[2]};
 }
 
 sub uniq {
-  my %uniq; 
+  my %uniq;
   @uniq{@{$_[1]}} = ();
-  return keys %uniq; 
+  return keys %uniq;
 }
 
 sub min {
@@ -92,7 +92,7 @@ sub from_tokens {
   my $self = shift;
   my $tokens1 = shift || [];
   my $tokens2 = shift || [];
-    
+
   my %unique1;
   @unique1{@$tokens1} = ();
   my %unique2;
@@ -104,14 +104,14 @@ sub from_tokens {
 sub from_sets {
   my ($self, $set1, $set2) = @_;
 
-  # ( A intersect B ) / min(A,B)  
+  # ( A intersect B ) / min(A,B)
   return (
     $self->intersection($set1,$set2) / $self->min($set1,$set2)
   );
 }
 
-sub intersection { 
-  scalar grep { exists ${$_[1]}{$_} } keys %{$_[2]}; 
+sub intersection {
+  scalar grep { exists ${$_[1]}{$_} } keys %{$_[2]};
 }
 
 sub min {
@@ -122,3 +122,4 @@ sub min {
 
 }
 
+use List::Util qw(min);

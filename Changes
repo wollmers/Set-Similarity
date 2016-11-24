@@ -1,6 +1,7 @@
 Revision history for Set::Similarity
 
 {{$NEXT}}
+       - requires 'parent'
 
 0.024  2015-04-27 15:44:19 CEST
        - improved travis configuration and badges
