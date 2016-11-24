@@ -1,6 +1,7 @@
 Revision history for Set::Similarity
 
 {{$NEXT}}
+       - travis for Perl 5.24
 
 0.025  2016-11-24 11:33:22 CET
        - requires 'parent'
