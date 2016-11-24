@@ -173,7 +173,7 @@ Transforms an arrayref of strings into an array of unique elements.
 
 # AUTHOR
 
-Helmut Wollmersdorfer, <helmut.wollmersdorfer@gmail.com>
+Helmut Wollmersdorfer, &lt;helmut.wollmersdorfer@gmail.com>
 
 <div>
     <a href='http://cpants.cpanauthors.org/author/wollmers'><img src='http://cpants.cpanauthors.org/author/wollmers.png' alt='Kwalitee Score' /></a>

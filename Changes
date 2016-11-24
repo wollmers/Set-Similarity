@@ -1,6 +1,8 @@
 Revision history for Set::Similarity
 
 {{$NEXT}}
+
+0.025  2016-11-24 11:33:22 CET
        - requires 'parent'
 
 0.024  2015-04-27 15:44:19 CEST
