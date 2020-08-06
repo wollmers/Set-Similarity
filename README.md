@@ -12,23 +12,23 @@ Set::Similarity - similarity measures for sets
 # SYNOPSIS
 
     use Set::Similarity::Dice;
-    
+
     # object method
     my $dice = Set::Similarity::Dice->new;
     my $similarity = $dice->similarity('Photographer','Fotograf');
-    
+
     # class method
     my $dice = 'Set::Similarity::Dice';
     my $similarity = $dice->similarity('Photographer','Fotograf');
-    
+
     # from 2-grams
     my $width = 2;
     my $similarity = $dice->similarity('Photographer','Fotograf',$width);
-    
+
     # from arrayref of tokens
     my $similarity = $dice->similarity(['a','b'],['b']);
 
-    # from hashref of features 
+    # from hashref of features
     my $bird = {
       wings    => true,
       eyes     => true,
@@ -43,10 +43,10 @@ Set::Similarity - similarity measures for sets
       feathers => false,
       hairs    => true,
       legs     => true,
-      arms     => true, 
+      arms     => true,
     };
     my $similarity = $dice->similarity($bird,$mammal);
-    
+
     # from arrayref sets
     my $bird = [qw(
       wings
@@ -78,7 +78,7 @@ The Jaccard coefficient measures similarity between sample sets, and is defined 
 
 The Tanimoto coefficient is the ratio of the number of features common to both sets to the total number of features, i.e.
 
-( A intersect B ) / ( A + B - ( A intersect B ) ) # the same as Jaccard 
+( A intersect B ) / ( A + B - ( A intersect B ) ) # the same as Jaccard
 
 The range is 0 to 1 inclusive.
 
@@ -101,7 +101,6 @@ All methods can be used as class or object methods.
 ## similarity
 
     my $similarity = $object->similarity($any1,$any1,$width);
-    
 
 `$any` can be an arrayref, a hashref or a string. Strings are tokenized into n-grams of width `$width`.
 
@@ -114,19 +113,16 @@ All methods can be used as class or object methods.
 ## from\_sets
 
     my $similarity = $object->from_sets(['a'],['b']);
-    
 
 Croaks if called directly. This method should be implemented in a child module.
 
 ## intersection
 
     my $intersection_size = $object->intersection(['a'],['b']);
-    
 
 ## uniq
 
     my @uniq = $object->uniq(['a','b']);
-    
 
 Transforms an arrayref of strings into an array of unique elements.
 
@@ -137,7 +133,6 @@ Transforms an arrayref of strings into an array of unique elements.
 ## min
 
     my $min_set_size = $object->min(['a'],['b']);
-    
 
 ## ngrams
 
@@ -147,25 +142,24 @@ Transforms an arrayref of strings into an array of unique elements.
 ## \_any
 
     my $arrayref = $object->_any($any,$width);
-    
 
 # SEE ALSO
 
-[Set::Similarity::Cosine](https://metacpan.org/pod/Set::Similarity::Cosine)
+[Set::Similarity::Cosine](https://metacpan.org/pod/Set%3A%3ASimilarity%3A%3ACosine)
 
-[Set::Similarity::Dice](https://metacpan.org/pod/Set::Similarity::Dice)
+[Set::Similarity::Dice](https://metacpan.org/pod/Set%3A%3ASimilarity%3A%3ADice)
 
-[Set::Similarity::Jaccard](https://metacpan.org/pod/Set::Similarity::Jaccard)
+[Set::Similarity::Jaccard](https://metacpan.org/pod/Set%3A%3ASimilarity%3A%3AJaccard)
 
-[Set::Similarity::Overlap](https://metacpan.org/pod/Set::Similarity::Overlap)
+[Set::Similarity::Overlap](https://metacpan.org/pod/Set%3A%3ASimilarity%3A%3AOverlap)
 
-[Bag::Similarity](https://metacpan.org/pod/Bag::Similarity) doing the same for bags or multisets.
+[Bag::Similarity](https://metacpan.org/pod/Bag%3A%3ASimilarity) doing the same for bags or multisets.
 
-[Text::Levenshtein](https://metacpan.org/pod/Text::Levenshtein) for distance measures of strings, and a very overview of similar modules,
+[Text::Levenshtein](https://metacpan.org/pod/Text%3A%3ALevenshtein) for distance measures of strings, and a very overview of similar modules,
 
 [http://en.wikipedia.org/wiki/String\_metric](http://en.wikipedia.org/wiki/String_metric) for an overview of similarity measures.
 
-[Cluster::Similarity](https://metacpan.org/pod/Cluster::Similarity) for clusters.
+[Cluster::Similarity](https://metacpan.org/pod/Cluster%3A%3ASimilarity) for clusters.
 
 # SOURCE REPOSITORY
 
@@ -173,7 +167,7 @@ Transforms an arrayref of strings into an array of unique elements.
 
 # AUTHOR
 
-Helmut Wollmersdorfer, &lt;helmut.wollmersdorfer@gmail.com>
+Helmut Wollmersdorfer, <helmut@wollmersdorfer.at>
 
 <div>
     <a href='http://cpants.cpanauthors.org/author/wollmers'><img src='http://cpants.cpanauthors.org/author/wollmers.png' alt='Kwalitee Score' /></a>
@@ -181,7 +175,7 @@ Helmut Wollmersdorfer, &lt;helmut.wollmersdorfer@gmail.com>
 
 # COPYRIGHT AND LICENSE
 
-Copyright (C) 2013-2015 by Helmut Wollmersdorfer
+Copyright (C) 2013-2020 by Helmut Wollmersdorfer
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

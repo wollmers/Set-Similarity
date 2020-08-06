@@ -1,6 +1,7 @@
 Revision history for Set::Similarity
 
 {{$NEXT}}
+       - improve Kwalitee by provides
 
 0.026  2016-11-24 12:04:49 CET
        - travis for Perl 5.24
