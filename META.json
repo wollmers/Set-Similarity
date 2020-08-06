@@ -52,23 +52,23 @@
    "provides" : {
       "Set::Similarity" : {
          "file" : "lib/Set/Similarity.pm",
-         "version" : "0.026"
+         "version" : "0.027"
       },
       "Set::Similarity::Cosine" : {
          "file" : "lib/Set/Similarity/Cosine.pm",
-         "version" : "0.026"
+         "version" : "0.027"
       },
       "Set::Similarity::Dice" : {
          "file" : "lib/Set/Similarity/Dice.pm",
-         "version" : "0.026"
+         "version" : "0.027"
       },
       "Set::Similarity::Jaccard" : {
          "file" : "lib/Set/Similarity/Jaccard.pm",
-         "version" : "0.026"
+         "version" : "0.027"
       },
       "Set::Similarity::Overlap" : {
          "file" : "lib/Set/Similarity/Overlap.pm",
-         "version" : "0.026"
+         "version" : "0.027"
       }
    },
    "release_status" : "stable",
@@ -83,7 +83,7 @@
          "web" : "https://github.com/wollmers/Set-Similarity"
       }
    },
-   "version" : "0.026",
+   "version" : "0.027",
    "x_contributors" : [
       "helmut <helmut@acerone.woll.internal>",
       "Helmut Wollmersdorfer <helmut.wollmersdorfer@fixpunkt.de>"
